@@ -26,4 +26,3 @@ def main():
         cloudinary.uploader.destroy(image['public_id'])
         return Response(json.dumps({"data":board}),mimetype="application/json")
     return Response("HI")
-app.run(debug=True)
