@@ -6,12 +6,16 @@ const difficultyLevel = document.querySelector("#diff");
 const hrs = document.querySelector(".hrs");
 const mins = document.querySelector(".min");
 const sec = document.querySelector(".sec");
+const image = document.querySelector('#image')
+const url = document.querySelector("#url")
+
 let seconds = 0, minutes = 0, hours = 0, id;
 const update = () => {
     sec.innerText = `${(seconds + "").padStart(2, '0')}`,
         mins.innerText = `${(minutes + "").padStart(2, '0')}:`,
         hrs.innerText = `${(hours + "").padStart(2, '0')}:`
 }
+
 window.onload = () => {
     fillBoard(parseInt(difficultyLevel.value));
     for (let i = 0; i < 9; i++) {
@@ -138,4 +142,40 @@ generate.addEventListener('click', () => {
 })
 reset.addEventListener("click", () => {
     init(1);
-})  
+})
+image.addEventListener("change", async (e) => {
+    let formData = new FormData()
+    let res; let data;
+    const files = e.target.files
+    formData.append('image', files[0])
+    try {
+        res = await fetch('https://sudoku-board-extractor.vercel.app/', {
+            headers: {
+                "Accept-Content": 'application/json',
+                "Access-Control-Allow-Origin": "*"
+            },
+            method: 'POST',
+            body: formData
+        })
+        res = await res.json()
+        data = res['data']
+    } catch (e) {
+        alert(e)
+    }
+    if (!data)
+        alert("Invalid Board")
+    else {
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 9; j++) {
+                if (data[i][j]) {
+                    board[i].children[j].style.backgroundColor = "rgb(255 197 0)";
+                    board[i].children[j].innerText = data[i][j];
+                }
+                else {
+                    board[i].children[j].style.backgroundColor = "white";
+                    board[i].children[j].innerText = '';
+                }
+            }
+        }
+    }
+})

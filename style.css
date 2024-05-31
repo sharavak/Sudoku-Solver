@@ -23,6 +23,10 @@ h1 {
     margin: 0px;
 }
 
+.l1 {
+    font-family: sans-serif;
+}
+
 #solve {
     background-color: rgb(1, 0, 31);
     cursor: pointer;
