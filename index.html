@@ -11,8 +11,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="manifest" href="./manifest.json" />
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://cdn-icons-png.freepik.com/64/1501/1501673.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/64.png">
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./sw.js");
+            });
+        }
+    </script>
     <title>Sudoku Solver</title>
 </head>
 
@@ -20,6 +30,11 @@
     <h1>Sudoku Solver</h1>
     <label for="image" class="l1">Upload the Sudoku Image</label>
     <input type="file" name="image" id="image">
+    <button class="viewImgModalBut">View Image</button>
+    <div class="viewImgModal hide">
+        <img src="" alt="" class="imgModal">
+        <button class="close">Close</button>
+    </div>
     <div class="timer">
         <span class="hrs">00:</span><span class="min">00:</span><span class="sec">00</span>
     </div>
