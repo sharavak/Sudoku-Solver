@@ -1,0 +1,45 @@
+{
+    "name": "Sudoku Solver",
+    "short_name": "Sodoku Solver",
+    "icons": [
+        {
+            "src": "./assets/Square150x150Logo.scale-150.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },
+        {
+            "src": "./assets/launchericon-144-144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "./assets/launchericon-192-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./assets/launchericon-512-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "./assets/22893010_6710504.jpg",
+            "sizes": "480x320",
+            "form_factor": "wide",
+            "type": "image/jpg"
+        },
+        {
+            "src": "./assets/22893010_6710504.jpg",
+            "sizes": "480x320",
+            "form_factor": "narrow",
+            "type": "image/jpg"
+        }
+    ],
+    "start_url": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "theme_color": "#051643",
+    "background_color": "#051643"
+}
