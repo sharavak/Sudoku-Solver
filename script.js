@@ -7,7 +7,9 @@ const hrs = document.querySelector(".hrs");
 const mins = document.querySelector(".min");
 const sec = document.querySelector(".sec");
 const image = document.querySelector('#image')
-const url = document.querySelector("#url")
+const url = document.querySelector("#url");
+const viewImgBut = document.querySelector(".viewImgModalBut");
+const viewImgModal = document.querySelector('.viewImgModal');
 
 let seconds = 0, minutes = 0, hours = 0, id;
 const update = () => {
@@ -146,7 +148,8 @@ reset.addEventListener("click", () => {
 image.addEventListener("change", async (e) => {
     let formData = new FormData()
     let res; let data;
-    const files = e.target.files
+    const files = e.target.files;
+    viewImgModal.children[0].src = URL.createObjectURL(files[0]);
     formData.append('image', files[0])
     try {
         res = await fetch('https://sudoku-board-extractor.vercel.app/', {
@@ -178,4 +181,14 @@ image.addEventListener("change", async (e) => {
             }
         }
     }
+})
+
+viewImgBut.addEventListener("click", () => {
+    viewImgModal.classList.remove('hide');
+    viewImgModal.classList.add('show');
+})
+
+viewImgModal.children[1].addEventListener('click', () => {
+    viewImgModal.classList.remove('show')
+    viewImgModal.classList.add('hide')
 })
