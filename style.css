@@ -6,8 +6,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    background-color: #badfff;
-    background: url("https://img.freepik.com/free-vector/hand-drawn-flat-design-sudoku_23-2149281225.jpg") #6199c8;
+    background: url("./assets/22754651_6693881.jpg") #6199c8;
     background-position: left;
     background-repeat: no-repeat;
     background-size: contain;
