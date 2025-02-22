@@ -10,6 +10,7 @@ const image = document.querySelector('#image')
 const url = document.querySelector("#url");
 const viewImgBut = document.querySelector(".viewImgModalBut");
 const viewImgModal = document.querySelector('.viewImgModal');
+const closeBut=document.querySelector('.close');
 
 let seconds = 0, minutes = 0, hours = 0, id;
 const update = () => {
@@ -191,4 +192,8 @@ viewImgBut.addEventListener("click", () => {
 viewImgModal.children[1].addEventListener('click', () => {
     viewImgModal.classList.remove('show')
     viewImgModal.classList.add('hide')
+})
+
+closeBut.addEventListener('click',()=>{
+    viewImgModal.classList.remove('hide');
 })
